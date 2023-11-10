@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Create() {
 
@@ -9,9 +10,23 @@ function Create() {
     const handleSubmit = (e)=>{
         e.preventDefault();
 
+        //send to console
         console.log("Title: "+title+
         " Cover: "+cover+
         " Author: "+author);
+
+
+        //adding book, author, cover
+        const book = {
+            title:title, 
+            cover:cover,
+            author:author
+        }
+
+        //get from url
+        axios.post('http://localhost:4000/api/book',book)
+        .then()
+        .catch();
     }
     // some comment
     return (
